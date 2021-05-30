@@ -26,7 +26,7 @@ class MainComponent extends Component {
     render() {
         return(
             <div>
-                Main 페이지 ㅌㅔ스트
+                Main 페이지 ㅌㅔ스트 하하
             </div>
         )
     }
