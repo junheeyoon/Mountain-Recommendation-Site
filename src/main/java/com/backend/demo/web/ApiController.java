@@ -1,11 +1,20 @@
+package com.backend.demo.web;
+
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.GetMapping;
+import java.util.*;
+
 @RestController
 public class ApiController {
 
     @GetMapping("/api/hello")
-    public HashMap hello() {
-        HashMap result = new HashMap();
-        result.put("message", "ì•ˆë…•í•˜ì„¸ìš”");
-
+    public HashMap<String, String> hello() {
+        HashMap<String, String> result = new HashMap<String, String>();
+        result.put("message", "¾È³çÇÏ¼¼¿ä");
+        System.out.println("123123213213");
         return result;
     }
+    @GetMapping("/api/hello1")
+    public String home(){ return "index.html"; }
+    
 }
