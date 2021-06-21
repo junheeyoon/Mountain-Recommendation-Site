@@ -5,6 +5,9 @@ import {BrowserRouter as Router, Route} from "react-router-dom";
 import MainComponent from './MainComponent'
 import DashboardComponent from './DashboardComponent'
 
+const fontStyle = {
+    fontSize: "300%",
+};
 class TopMenuComponent extends Component {
     render() {
         return (
@@ -16,10 +19,10 @@ class TopMenuComponent extends Component {
                     <Navbar.Brand href="/">
                         Home
                     </Navbar.Brand>
-                    <Navbar.Brand href="/main">
+                    <Navbar.Brand href="/main" style={fontStyle}>
                         Main
                     </Navbar.Brand>
-                    <Navbar.Brand href="/dashboard">
+                    <Navbar.Brand href="/dashboard" style={fontStyle}>
                         Dashboard
                     </Navbar.Brand>
                 </Navbar>

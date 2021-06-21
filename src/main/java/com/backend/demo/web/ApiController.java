@@ -10,7 +10,7 @@ public class ApiController {
     @GetMapping("/api/hello")
     public HashMap<String, String> hello() {
         HashMap<String, String> result = new HashMap<String, String>();
-        result.put("message", "¾È³çÇÏ¼¼¿ä");
+        result.put("message", "ì•ˆë…•í•˜ì„¸ìš”");
         System.out.println("123123213213");
         return result;
     }
