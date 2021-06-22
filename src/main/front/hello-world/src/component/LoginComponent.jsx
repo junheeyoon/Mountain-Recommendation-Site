@@ -5,6 +5,7 @@ class LoginComponent extends Component {
         return (
             
             <Form>
+                
                 <h3>Log in</h3>
                 <Form.Row>
                     <Form.Group controlId="formGridEmail">
