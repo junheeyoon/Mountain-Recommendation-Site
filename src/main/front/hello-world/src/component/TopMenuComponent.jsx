@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import {Navbar} from "react-bootstrap";
+import {Navbar, Nav, Button} from "react-bootstrap";
 import {BrowserRouter as Router, Route} from "react-router-dom";
 
 import MainComponent from './MainComponent'
@@ -11,8 +11,27 @@ const fontStyle = {
     fontSize: "300%",
 };
 class TopMenuComponent extends Component {
+    
+    constructor(props) {
+        super(props);
+        console.log('this is:', this);
+        this.state = {
+          isModalOpen: false,
+        };
+    }
+    
+    openModal = () => {
+        console.log('this is:', this);
+        this.setState({ isModalOpen: true });
+    };
+    
+    closeModal = () => {
+        this.setState({ isModalOpen: false });
+    };
+    
     render() {
         return (
+            
             <Router>
                 <Navbar
                     bg="dark"
@@ -27,25 +46,40 @@ class TopMenuComponent extends Component {
                             alt="React Bootstrap logo"
                         />
                     </Navbar.Brand>
-                    <Navbar.Brand href="/main" style={fontStyle}>
-                        Main
-                    </Navbar.Brand>
-                    <Navbar.Brand href="/dashboard" style={fontStyle}>
-                        Dashboard
-                    </Navbar.Brand>
-                    <Navbar.Brand href="/login" style={fontStyle}>
-                        Login
-                    </Navbar.Brand>
-                    <Navbar.Brand href="/signup" style={fontStyle}>
-                        SignUp
-                    </Navbar.Brand>
+                    <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+                    <Navbar.Collapse id="responsive-navbar-nav">
+                    <Nav className="mr-auto">
+                        <Navbar.Brand href="/main" style={fontStyle}>
+                            Main
+                        </Navbar.Brand>
+                        <Navbar.Brand href="/dashboard" style={fontStyle}>
+                            Dashboard
+                        </Navbar.Brand>
+                        
+                        <Navbar.Brand href="/signup" style={fontStyle}>
+                            SignUp
+                        </Navbar.Brand>
+                    </Nav>
+                    <>
+                <Button onClick={this.openModal}>Modal</Button>
+                <LoginComponent isOpen={this.state.isModalOpen} close={this.closeModal} />
+                </>
+                    <Nav>
+                        <Nav.Link href="#deets">More deets</Nav.Link>
+                        <Nav.Link eventKey={2} href="#memes">
+                            Dank memes
+                        </Nav.Link>
+                    </Nav>
+                    </Navbar.Collapse>
                 </Navbar>
-
+                
                 <Route path="/main" component={MainComponent} />
                 <Route path="/dashboard" component={DashboardComponent} />
-                <Route path="/login" component={LoginComponent} />
                 <Route path="/signup" component={SignupComponent} />
+
+                
             </Router>
+            
         )
     }
 }
