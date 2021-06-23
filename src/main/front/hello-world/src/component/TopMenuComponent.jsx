@@ -9,19 +9,18 @@ import SignupComponent from './SignupComponent'
 import logo from '../logo.svg';
 const fontStyle = {
     fontSize: "300%",
+    color: "white",
 };
 class TopMenuComponent extends Component {
     
     constructor(props) {
         super(props);
-        console.log('this is:', this);
         this.state = {
           isModalOpen: false,
         };
     }
     
     openModal = () => {
-        console.log('this is:', this);
         this.setState({ isModalOpen: true });
     };
     
@@ -60,10 +59,7 @@ class TopMenuComponent extends Component {
                             SignUp
                         </Navbar.Brand>
                     </Nav>
-                    <>
-                <Button onClick={this.openModal}>Modal</Button>
-                <LoginComponent isOpen={this.state.isModalOpen} close={this.closeModal} />
-                </>
+                   
                     <Nav>
                         <Nav.Link href="#deets">More deets</Nav.Link>
                         <Nav.Link eventKey={2} href="#memes">
@@ -71,6 +67,10 @@ class TopMenuComponent extends Component {
                         </Nav.Link>
                     </Nav>
                     </Navbar.Collapse>
+                    <>
+                <Nav.Link style={fontStyle} onClick={() => this.openModal()}>Sign In</Nav.Link>
+                <LoginComponent isOpen={this.state.isModalOpen} close={this.closeModal} />
+                </>
                 </Navbar>
                 
                 <Route path="/main" component={MainComponent} />
